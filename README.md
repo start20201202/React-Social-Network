@@ -73,3 +73,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 gitk --all&
 git checkout вставить версию
+
+create react app
+npm i react-router-dom -save (-save внести запись в json файл)
