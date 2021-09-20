@@ -77,4 +77,4 @@ git checkout вставить версию
 create react app
 npm i react-router-dom -save (-save внести запись в json файл)
 
-'div.message\*3'
+'div.message\*3 '
