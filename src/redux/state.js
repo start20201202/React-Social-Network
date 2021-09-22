@@ -26,13 +26,14 @@ let state = {
 			{ id: 4, message: "Yo" },
 			{ id: 5, message: "Yo" },
 		],
+		newMessagesText: "hello it-kamasutra",
 	},
 	sidebar: {},
 };
 
 window.state = state;
 
-/* добавить сообщение на страницу */
+/* добавить пост на страницу */
 export let addPost = () => {
 	let newPost = {
 		id: 5,
@@ -47,10 +48,32 @@ export let addPost = () => {
 	rerenderEntireTree(state);
 };
 
-/* добавить сообщение в State NewPostText */
+/* добавить пост в State NewPostText */
 export let updateNewPostText = (newText) => {
 	/* добавить новый пост */
 	state.profilePage.newPostText = newText;
+	/* перерисовать страницу */
+	rerenderEntireTree(state);
+};
+
+/* добавить сообщение на страницу */
+export let addMessage = () => {
+	let newMessage = {
+		id: 6,
+		message: state.dialogsPage.newMessagesText,
+	};
+	/* добавить пост */
+	state.dialogsPage.messages.push(newMessage);
+	/* обнулить поле */
+	state.dialogsPage.newMessagesText = " ";
+	/* перерисовать страницу */
+	rerenderEntireTree(state);
+};
+
+/* добавить сообщение в State newMessagesText */
+export let updateNewMessageText = (newMessage) => {
+	/* добавить новый пост */
+	state.dialogsPage.newMessagesText = newMessage;
 	/* перерисовать страницу */
 	rerenderEntireTree(state);
 };
