@@ -8,6 +8,7 @@ let state = {
 			{ id: 3, message: "Blabla", likesCount: 11 },
 			{ id: 4, message: "Dada", likesCount: 11 },
 		],
+		newPostText: "it-kamasutra",
 	},
 	dialogsPage: {
 		dialogs: [
@@ -29,13 +30,28 @@ let state = {
 	sidebar: {},
 };
 
-export let addPost = (postMessage) => {
+window.state = state;
+
+/* добавить сообщение на страницу */
+export let addPost = () => {
 	let newPost = {
 		id: 5,
-		message: postMessage,
+		message: state.profilePage.newPostText,
 		likesCount: 0,
 	};
+	/* добавить пост */
 	state.profilePage.posts.push(newPost);
+	/* обнулить поле */
+	state.profilePage.newPostText = " ";
+	/* перерисовать страницу */
+	rerenderEntireTree(state);
+};
+
+/* добавить сообщение в State NewPostText */
+export let updateNewPostText = (newText) => {
+	/* добавить новый пост */
+	state.profilePage.newPostText = newText;
+	/* перерисовать страницу */
 	rerenderEntireTree(state);
 };
 
