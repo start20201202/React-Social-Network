@@ -1,4 +1,4 @@
-import { rerenderEntireTree } from "../render";
+let rerenderEntireTree = () => console.log("state changed");
 
 let state = {
 	profilePage: {
@@ -34,7 +34,7 @@ let state = {
 window.state = state;
 
 /* добавить пост на страницу */
-export let addPost = () => {
+export const addPost = () => {
 	let newPost = {
 		id: 5,
 		message: state.profilePage.newPostText,
@@ -49,7 +49,7 @@ export let addPost = () => {
 };
 
 /* добавить пост в State NewPostText */
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
 	/* добавить новый пост */
 	state.profilePage.newPostText = newText;
 	/* перерисовать страницу */
@@ -57,7 +57,7 @@ export let updateNewPostText = (newText) => {
 };
 
 /* добавить сообщение на страницу */
-export let addMessage = () => {
+export const addMessage = () => {
 	let newMessage = {
 		id: 6,
 		message: state.dialogsPage.newMessagesText,
@@ -71,11 +71,15 @@ export let addMessage = () => {
 };
 
 /* добавить сообщение в State newMessagesText */
-export let updateNewMessageText = (newMessage) => {
+export const updateNewMessageText = (newMessage) => {
 	/* добавить новый пост */
 	state.dialogsPage.newMessagesText = newMessage;
 	/* перерисовать страницу */
 	rerenderEntireTree(state);
+};
+
+export const subscribe = (observer) => {
+	rerenderEntireTree = observer;
 };
 
 export default state;
