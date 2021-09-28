@@ -35,28 +35,10 @@ let store = {
 	getState() {
 		return this._state;
 	},
+	subscribe(observer) {
+		this._callSubscriber = observer;
+	},
 
-	/* добавить пост на страницу */
-	addPost() {
-		let newPost = {
-			id: 5,
-			message: this._state.profilePage.newPostText,
-			likesCount: 0,
-		};
-		/* добавить пост */
-		this._state.profilePage.posts.push(newPost);
-		/* обнулить поле */
-		this._state.profilePage.newPostText = " ";
-		/* перерисовать страницу */
-		this._callSubscriber(this._state);
-	},
-	/* добавить пост в State NewPostText */
-	updateNewPostText(newText) {
-		/* добавить новый пост */
-		this._state.profilePage.newPostText = newText;
-		/* перерисовать страницу */
-		this._callSubscriber(this._state);
-	},
 	/* добавить сообщение на страницу */
 	addMessage() {
 		let newMessage = {
@@ -77,8 +59,26 @@ let store = {
 		/* перерисовать страницу */
 		this._callSubscriber(this._state);
 	},
-	subscribe(observer) {
-		this._callSubscriber = observer;
+
+	dispatch(action) {
+		if (action.type === "ADD-POST") {
+			let newPost = {
+				id: 5,
+				message: this._state.profilePage.newPostText,
+				likesCount: 0,
+			};
+			/* добавить пост */
+			this._state.profilePage.posts.push(newPost);
+			/* обнулить поле */
+			this._state.profilePage.newPostText = " ";
+			/* перерисовать страницу */
+			this._callSubscriber(this._state);
+		} else if (action.type === "UPDATE-NEW-POST-TEXT") {
+			/* добавить новый пост */
+			this._state.profilePage.newPostText = action.newText;
+			/* перерисовать страницу */
+			this._callSubscriber(this._state);
+		}
 	},
 };
 
