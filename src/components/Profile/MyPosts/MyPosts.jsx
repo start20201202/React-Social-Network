@@ -15,7 +15,7 @@ let newPostElement = React.createRef();
 /* добавить пост на страницу */
 let addPost = () => {
   //props.addPost();
-  props.dispatch(addPostActionCreator );
+  props.dispatch(addPostActionCreator());
 }
 
 /* добавить пост в State NewPostText */
