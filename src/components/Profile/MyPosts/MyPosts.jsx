@@ -14,16 +14,16 @@ let newPostElement = React.createRef();
 
 /* добавить пост на страницу */
 let addPost = () => {
-  //props.addPost();
-  props.dispatch(addPostActionCreator());
+  props.addPost();
+ //props.dispatch(addPostActionCreator());
 }
 
 /* добавить пост в State NewPostText */
 let onPostChange = () => {
   let text = newPostElement.current.value;
-  //props.updateNewPostText(text);
-  let action = updateNewPostTextActionCreator(text);
-  props.dispatch(action);
+  props.updateNewPostText(text);
+ //let action = updateNewPostTextActionCreator(text);
+  //props.dispatch(action);
 }
 
   return (
