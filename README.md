@@ -81,3 +81,5 @@ npm i react-router-dom -save (-save внести запись в json файл)
 
 npm install redux --save
 создать Store: let store = createStore();
+
+npm install react-redux --save
