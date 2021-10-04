@@ -83,3 +83,6 @@ npm install redux --save
 создать Store: let store = createStore();
 
 npm install react-redux --save
+
+npm install axios --save
+https://social-network.samuraijs.com/
