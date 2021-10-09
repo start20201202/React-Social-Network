@@ -86,3 +86,5 @@ npm install react-redux --save
 
 npm install axios --save
 https://social-network.samuraijs.com/
+
+npm i redux-thunk - для работы с асинхронным кодом
