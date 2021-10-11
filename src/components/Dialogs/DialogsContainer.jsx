@@ -5,14 +5,13 @@ import {
 } from "../../redux/dialogs-reducer";
 import Dialogs from "./Dialogs";
 import { connect } from "react-redux";
-import { withAutoRedirect } from "./../hoc/withAuthRedirect";
-import {compose} from "redux";
-
+import { Redirect } from "react-router-dom";
+import { withAuthRedirect } from "../hoc/withAuthRedirect";
+import { compose } from "redux";
 
 let mapStateToProps = (state) => {
 	return {
 		dialogsPage: state.dialogsPage,
-		isAuth: state.auth.isAuth,
 	};
 };
 let mapDispatchToProps = (dispatch) => {
@@ -26,19 +25,7 @@ let mapDispatchToProps = (dispatch) => {
 	};
 };
 
-let mapStateToPropsForRedirect = (state) => ({
-	isAuth: state.auth.isAuth,
-});
-
-
-
-
-
-export default compose (
-connect(
-	mapStateToProps,
-	mapDispatchToProps
-),
-withAutoRedirect
-
+export default compose(
+	connect(mapStateToProps, mapDispatchToProps),
+	withAuthRedirect
 )(Dialogs);
