@@ -90,3 +90,5 @@ https://social-network.samuraijs.com/
 npm i redux-thunk - для работы с асинхронным кодом
 
 google: create-react-app update to new version
+
+npm install redux-form
