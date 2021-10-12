@@ -19,7 +19,10 @@ const ProfileInfo = (props) => {
 					<span>{props.profile.aboutMe}</span>
 					<span>{props.profile.contacts.vk}</span>
 				</div>
-				<ProfileStatus status={"hello, my friends"} />
+				<ProfileStatus
+					status={props.status}
+					updateStatus={props.updateStatus}
+				/>
 			</div>
 		</div>
 	);
