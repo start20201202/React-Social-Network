@@ -9,7 +9,7 @@ import {
 } from "../../redux/users-reducer";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
-import { withAuthRedirect } from "../hoc/withAuthRedirect";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { compose } from "redux";
 import {
 	getCurrentPage,
@@ -18,7 +18,7 @@ import {
 	getPageSize,
 	getTotalUsersCount,
 	getUsers,
-} from "../../redux/user-selectors";
+} from "../../redux/users-selectors";
 
 class UsersContainer extends React.Component {
 	componentDidMount() {
@@ -30,6 +30,7 @@ class UsersContainer extends React.Component {
 	};
 
 	render() {
+		console.log("USERS");
 		return (
 			<>
 				{this.props.isFetching ? <Preloader /> : null}
@@ -59,6 +60,7 @@ class UsersContainer extends React.Component {
     }
 }*/
 let mapStateToProps = (state) => {
+	console.log("mapStateToProps USERS");
 	return {
 		users: getUsers(state),
 		pageSize: getPageSize(state),
