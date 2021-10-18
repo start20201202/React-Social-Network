@@ -94,3 +94,5 @@ google: create-react-app update to new version
 npm install redux-form
 
 npm install reselect
+
+npm add reselect
