@@ -96,3 +96,7 @@ npm install redux-form
 npm install reselect
 
 npm add reselect
+
+npm test src/App.test.js
+
+npm run test
